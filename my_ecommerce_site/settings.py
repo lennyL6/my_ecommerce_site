@@ -54,7 +54,7 @@ WSGI_APPLICATION = 'my_ecommerce_site.wsgi.application'
 
 # Database configuration
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://myuser:mypassword@localhost:5432/mydatabase')
+    'default': dj_database_url.config(default='postgres://elitefootwear_d1sy_user:LIjrUHlH5BA7xCgd9hZVRV3lPHzPH6bk@dpg-cp84ql674orc73dbfc6g-a/elitefootwear_d1sy')
 }
 
 # Use dj_database_url to update the default configuration with the DATABASE_URL environment variable
