@@ -52,10 +52,20 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'my_ecommerce_site.wsgi.application'
 
-# Database
+# Database configuration
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME', 'mydatabase'),
+        'USER': os.environ.get('DB_USER', 'myuser'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'mypassword'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
+    }
 }
+
+# Use dj_database_url to update the default configuration with the DATABASE_URL environment variable
+DATABASES['default'].update(dj_database_url.config(conn_max_age=600, ssl_require=True))
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -92,3 +102,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
+
