@@ -5,7 +5,7 @@ import django_heroku
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get('SECRET_KEY', 'your_default_secret_key')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'tl!1#j)cmcf2btecqgx)jn#%c4&)y27_adf0fvnrn&fiui1fky')
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = ['*']
 
@@ -60,7 +60,6 @@ DATABASES = {
     )
 }
 
-# Use dj_database_url to update the default configuration with the DATABASE_URL environment variable
 DATABASES['default'].update(dj_database_url.config(conn_max_age=600, ssl_require=True))
 
 AUTH_PASSWORD_VALIDATORS = [
