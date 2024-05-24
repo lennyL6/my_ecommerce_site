@@ -54,7 +54,6 @@ WSGI_APPLICATION = 'my_ecommerce_site.wsgi.application'
 
 print("DEBUG: DATABASE_URL = ", os.environ.get('DATABASE_URL'))
 
-# Database configuration
 DATABASES = {
     'default': dj_database_url.config(
         default='postgres://elitefootwear_d1sy_user:LIjrUHlH5BA7xCgd9hZVRV3lPHzPH6bk@dpg-cp84ql674orc73dbfc6g-a/elitefootwear_d1sy'
@@ -64,7 +63,6 @@ DATABASES = {
 # Use dj_database_url to update the default configuration with the DATABASE_URL environment variable
 DATABASES['default'].update(dj_database_url.config(conn_max_age=600, ssl_require=True))
 
-# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -80,22 +78,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
 LANGUAGE_CODE = 'fr-fr'
 TIME_ZONE = 'Europe/Paris'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Activate Django-Heroku.
 django_heroku.settings(locals())
