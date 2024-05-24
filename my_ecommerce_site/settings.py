@@ -52,6 +52,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'my_ecommerce_site.wsgi.application'
 
+print("DEBUG: DATABASE_URL = ", os.environ.get('DATABASE_URL'))
+
 # Database configuration
 DATABASES = {
     'default': dj_database_url.config(
@@ -97,5 +99,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-
-     
